@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Car, Users, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -9,8 +8,8 @@ import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
 const Index = () => {
-  // Fix the type to explicitly use HTMLDivElement
-  const sectionRefs = useRef<HTMLDivElement[]>([]);
+  // Using HTMLElement instead of HTMLDivElement to avoid the 'align' property error
+  const sectionRefs = useRef<HTMLElement[]>([]);
   
   // Handle fade-in animations on scroll
   useEffect(() => {
@@ -75,7 +74,7 @@ const Index = () => {
       {/* Services Section */}
       <section className="section-padding bg-white" 
         ref={(el) => {
-          if (el) sectionRefs.current[0] = el;
+          if (el && sectionRefs.current) sectionRefs.current[0] = el;
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -139,7 +138,7 @@ const Index = () => {
       {/* Destinations Section */}
       <section className="section-padding bg-white" 
         ref={(el) => {
-          if (el) sectionRefs.current[1] = el;
+          if (el && sectionRefs.current) sectionRefs.current[1] = el;
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -178,7 +177,7 @@ const Index = () => {
       {/* Testimonials Section */}
       <section className="section-padding bg-slate-50" 
         ref={(el) => {
-          if (el) sectionRefs.current[2] = el;
+          if (el && sectionRefs.current) sectionRefs.current[2] = el;
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -227,7 +226,7 @@ const Index = () => {
       {/* Call to Action */}
       <section className="py-20 bg-alba-700 text-white" 
         ref={(el) => {
-          if (el) sectionRefs.current[3] = el;
+          if (el && sectionRefs.current) sectionRefs.current[3] = el;
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center fade-in-section">
