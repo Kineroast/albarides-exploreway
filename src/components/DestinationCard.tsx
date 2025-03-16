@@ -1,7 +1,9 @@
 
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 interface DestinationCardProps {
+  id?: string;
   name: string;
   image: string;
   description: string;
@@ -11,6 +13,7 @@ interface DestinationCardProps {
 }
 
 const DestinationCard = ({
+  id,
   name,
   image,
   description,
@@ -18,13 +21,23 @@ const DestinationCard = ({
   className,
   onClick,
 }: DestinationCardProps) => {
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else if (id) {
+      navigate(`/destinations/${id}`);
+    }
+  };
+
   return (
     <div 
       className={cn(
         "overflow-hidden rounded-2xl shadow-md group cursor-pointer h-full flex flex-col",
         className
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* Image Container with Overlay */}
       <div className="relative overflow-hidden h-56">

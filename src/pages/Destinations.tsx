@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import DestinationCard from '@/components/DestinationCard';
@@ -15,58 +14,130 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const Destinations = () => {
   const destinations = [
     {
+      id: "berat",
       name: "Berat - City of a Thousand Windows",
       image: "https://images.unsplash.com/photo-1592489261565-4959d7252a98?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Explore the UNESCO-listed historic town with its unique Ottoman architecture and towering castle overlooking the Osum River.",
-      rating: 4.8
+      rating: 4.8,
+      highlights: [
+        "UNESCO World Heritage Site",
+        "Ottoman-era architecture",
+        "Berat Castle with panoramic views",
+        "Mangalem and Gorica historic quarters",
+        "Onufri Museum with religious artifacts"
+      ]
     },
     {
+      id: "albanian-riviera",
       name: "Albanian Riviera",
       image: "https://images.unsplash.com/photo-1606994868513-d91f28eaab33?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Discover pristine beaches and crystal-clear waters along Albania's stunning southern coastline from Vlora to Saranda.",
-      rating: 4.9
+      rating: 4.9,
+      highlights: [
+        "Ksamil Islands with white sandy beaches",
+        "Dhermi's vibrant beach scene",
+        "Gjipe Beach - a hidden paradise",
+        "Porto Palermo Castle",
+        "Llogara National Park with spectacular views"
+      ]
     },
     {
+      id: "theth",
       name: "Theth National Park",
       image: "https://images.unsplash.com/photo-1551854596-0aa248fc995b?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Experience the majestic Albanian Alps with hiking trails, waterfalls, and traditional stone houses in this unspoiled mountain village.",
-      rating: 4.7
+      rating: 4.7,
+      highlights: [
+        "Blue Eye waterfall",
+        "Hiking to Valbona Pass",
+        "Traditional Albanian stone houses",
+        "Grunas Waterfall",
+        "Lock-in Tower (Kulla)"
+      ]
     },
     {
+      id: "butrint",
       name: "Butrint Archaeological Site",
       image: "https://images.unsplash.com/photo-1559735614-edfc9fdf95fc?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Visit this UNESCO World Heritage site featuring ruins from Greek, Roman, Byzantine, and Venetian times in a beautiful natural setting.",
-      rating: 4.8
+      rating: 4.8,
+      highlights: [
+        "Ancient Greek Theater",
+        "Roman Forum",
+        "Byzantine Baptistery with mosaics", 
+        "Venetian Tower",
+        "Museum of archaeological findings"
+      ]
     },
     {
+      id: "gjirokaster",
       name: "Gjirokastër",
       image: "https://images.unsplash.com/photo-1600093112524-288811dd24c0?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Tour the 'City of Stone' with its Ottoman-era architecture, imposing castle, and charming cobblestone streets in the Albanian highlands.",
-      rating: 4.6
+      rating: 4.6,
+      highlights: [
+        "Gjirokastër Castle with panoramic views",
+        "Ethnographic Museum (Enver Hoxha's birthplace)",
+        "Traditional Ottoman houses",
+        "Bazaar of Gjirokastër",
+        "Zekate House - finest example of Ottoman architecture"
+      ]
     },
     {
+      id: "blue-eye",
       name: "Blue Eye Spring (Syri i Kaltër)",
       image: "https://images.unsplash.com/photo-1604082787517-e5e06d1ad537?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Marvel at this natural phenomenon where crystal clear water bubbles from a more than 50-meter-deep pool with stunning blue colors.",
-      rating: 4.9
+      rating: 4.9,
+      highlights: [
+        "Hypnotic blue waters with unmatched clarity",
+        "Nature trails surrounding the spring",
+        "Wildlife viewing opportunities",
+        "Perfect photo opportunities",
+        "Refreshing swimming experience (for the brave)"
+      ]
     },
     {
+      id: "kruje",
       name: "Krujë Castle & Old Bazaar",
       image: "https://images.unsplash.com/photo-1592309245211-98bb40899e8a?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Explore the historical center of Albanian resistance against the Ottoman Empire and shop for traditional crafts in the old market.",
-      rating: 4.5
+      rating: 4.5,
+      highlights: [
+        "Skanderbeg Museum dedicated to Albania's national hero",
+        "Traditional Ottoman-style bazaar",
+        "Castle ruins with panoramic views",
+        "Ethnographic Museum showcasing traditional life",
+        "Handcrafted Albanian souvenirs and carpets"
+      ]
     },
     {
+      id: "shkoder",
       name: "Shkodër & Lake Shkodra",
       image: "https://images.unsplash.com/photo-1596466851542-4d37522bdb7d?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Visit Albania's cultural capital and the largest lake in Southern Europe, offering beautiful scenery and rich biodiversity.",
-      rating: 4.7
+      rating: 4.7,
+      highlights: [
+        "Rozafa Castle with panoramic views",
+        "Marubi National Museum of Photography",
+        "Lake Shkodra boat tours",
+        "Cycling routes around the lake",
+        "Historic Pedonale walking street"
+      ]
     },
     {
+      id: "tirana",
       name: "Tirana",
       image: "https://images.unsplash.com/photo-1605728463622-a14e23c6fde3?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1000",
       description: "Discover Albania's vibrant capital with its colorful buildings, museums, and bustling cafe culture reflecting the country's unique history.",
-      rating: 4.5
+      rating: 4.5,
+      highlights: [
+        "Skanderbeg Square - the city's main plaza",
+        "National History Museum",
+        "Bunk'Art - Cold War bunker turned museum",
+        "Et'hem Bey Mosque",
+        "The Block (Blloku) area for restaurants and nightlife"
+      ]
     }
   ];
 
@@ -155,9 +226,10 @@ const Destinations = () => {
             All Destinations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination, index) => (
+            {destinations.map((destination) => (
               <DestinationCard
-                key={index}
+                key={destination.id}
+                id={destination.id}
                 name={destination.name}
                 image={destination.image}
                 description={destination.description}
