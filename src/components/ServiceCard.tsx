@@ -7,9 +7,10 @@ interface ServiceCardProps {
   description: string;
   icon: LucideIcon;
   className?: string;
+  children?: React.ReactNode;
 }
 
-const ServiceCard = ({ title, description, icon: Icon, className }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, icon: Icon, className, children }: ServiceCardProps) => {
   return (
     <div 
       className={cn(
@@ -28,6 +29,8 @@ const ServiceCard = ({ title, description, icon: Icon, className }: ServiceCardP
       <p className="text-slate-600 flex-grow">
         {description}
       </p>
+      
+      {children}
       
       <div className="mt-6 pt-2">
         <a 
