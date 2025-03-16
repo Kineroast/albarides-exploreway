@@ -9,7 +9,8 @@ import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
 const Index = () => {
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // Fix the type to explicitly use HTMLDivElement
+  const sectionRefs = useRef<HTMLDivElement[]>([]);
   
   // Handle fade-in animations on scroll
   useEffect(() => {
@@ -72,7 +73,11 @@ const Index = () => {
       />
 
       {/* Services Section */}
-      <section className="section-padding bg-white" ref={el => sectionRefs.current[0] = el}>
+      <section className="section-padding bg-white" 
+        ref={(el) => {
+          if (el) sectionRefs.current[0] = el;
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16 fade-in-section">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Our Premium Services</h2>
@@ -132,7 +137,11 @@ const Index = () => {
       </section>
       
       {/* Destinations Section */}
-      <section className="section-padding bg-white" ref={el => sectionRefs.current[1] = el}>
+      <section className="section-padding bg-white" 
+        ref={(el) => {
+          if (el) sectionRefs.current[1] = el;
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 fade-in-section">
             <div>
@@ -167,7 +176,11 @@ const Index = () => {
       </section>
       
       {/* Testimonials Section */}
-      <section className="section-padding bg-slate-50" ref={el => sectionRefs.current[2] = el}>
+      <section className="section-padding bg-slate-50" 
+        ref={(el) => {
+          if (el) sectionRefs.current[2] = el;
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16 fade-in-section">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">What Our Clients Say</h2>
@@ -212,7 +225,11 @@ const Index = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="py-20 bg-alba-700 text-white" ref={el => sectionRefs.current[3] = el}>
+      <section className="py-20 bg-alba-700 text-white" 
+        ref={(el) => {
+          if (el) sectionRefs.current[3] = el;
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Travel Experience?</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
