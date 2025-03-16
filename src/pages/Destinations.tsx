@@ -3,6 +3,14 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import DestinationCard from '@/components/DestinationCard';
 import Footer from '@/components/Footer';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Destinations = () => {
   const destinations = [
@@ -62,6 +70,29 @@ const Destinations = () => {
     }
   ];
 
+  const featuredImages = [
+    {
+      url: "https://images.unsplash.com/photo-1592489261565-4959d7252a98?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1200",
+      caption: "Berat - City of a Thousand Windows"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1606994868513-d91f28eaab33?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1200",
+      caption: "Albanian Riviera"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1551854596-0aa248fc995b?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1200", 
+      caption: "Theth National Park"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1559735614-edfc9fdf95fc?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1200",
+      caption: "Butrint Archaeological Site"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1604082787517-e5e06d1ad537?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1200",
+      caption: "Blue Eye Spring (Syri i Kaltër)"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-alba-50/30">
       {/* Hero Section */}
@@ -78,9 +109,51 @@ const Destinations = () => {
         </div>
       </section>
 
+      {/* Image Carousel Section */}
+      <section className="py-12 px-6 md:px-12 bg-alba-50/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-alba-950 mb-8 text-center">
+            Featured Destinations
+          </h2>
+          
+          <div className="relative mx-auto">
+            <Carousel className="w-full max-w-5xl mx-auto">
+              <CarouselContent>
+                {featuredImages.map((image, index) => (
+                  <CarouselItem key={index} className="md:basis-2/3 lg:basis-3/4">
+                    <div className="p-1">
+                      <div className="overflow-hidden rounded-xl shadow-lg">
+                        <AspectRatio ratio={16/9} className="bg-muted">
+                          <img
+                            src={image.url}
+                            alt={image.caption}
+                            className="object-cover w-full h-full transition-all hover:scale-105 duration-700"
+                          />
+                        </AspectRatio>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80 rounded-xl" />
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <h3 className="font-semibold text-xl md:text-2xl">{image.caption}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="hidden md:block">
+                <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+                <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+              </div>
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
       {/* Destinations Grid */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-alba-950 mb-8 text-center">
+            All Destinations
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination, index) => (
               <DestinationCard
